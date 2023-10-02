@@ -3,11 +3,11 @@ package com.trendyol.shipment;
 import java.util.List;
 
 public class Basket {
-
     private List<Product> products;
+    private final IShipmentStrategy shipmentStrategy = new DefaultShipmentStrategy();
 
     public ShipmentSize getShipmentSize() {
-        return null;
+        return shipmentStrategy.determineShipmentSize(products);
     }
 
     public List<Product> getProducts() {
